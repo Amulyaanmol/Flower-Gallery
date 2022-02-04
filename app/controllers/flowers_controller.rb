@@ -14,6 +14,7 @@ class FlowersController < ApplicationController
   def create
     @flower = Flower.new(params.require(:flower).permit(:name, :price))
     if @flower.save
+      flash[:notice] = 'Flower Added'
       redirect_to @flower
     else
       render :new
@@ -27,6 +28,7 @@ class FlowersController < ApplicationController
   def update
     @flower = Flower.find(params[:id])
     if @flower.update(params.require(:flower).permit(:name, :price))
+      flash[:notice] = 'Flower Updated'
       redirect_to @flower
     else
       render :edit
@@ -36,6 +38,6 @@ class FlowersController < ApplicationController
   def destroy
     @flower = Flower.find(params[:id])
     @flower.destroy
-    redirect_to root_path
+    redirect_to flowers_path
   end
 end

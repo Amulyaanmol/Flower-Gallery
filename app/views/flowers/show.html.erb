@@ -1,0 +1,9 @@
+<h1><%= @flower.name %></h1>
+
+<p><%= @flower.price %></p>
+<br>
+<div>
+<%= link_to "Edit", edit_flower_path(@flower) %>
+<%= button_to "Destroy", @flower, method: :delete %>
+<%= link_to 'Back', root_path%>
+</div>

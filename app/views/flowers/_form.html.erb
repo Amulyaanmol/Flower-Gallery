@@ -1,0 +1,22 @@
+<%= form_with model: flower do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% flower.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %><br>
+    <% flower.errors.full_messages_for(:price).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+    <%= link_to 'Back', flowers_path, class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
